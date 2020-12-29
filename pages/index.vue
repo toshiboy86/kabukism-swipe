@@ -3,7 +3,17 @@
     <client-only>
       <tinder ref="tinder" key-name="id" :queue.sync="queue" :offset-y="10" @submit="onSubmit">
         <template slot-scope="scope">
-          <div><h1>Hello world!</h1></div>
+          <div class="question-top"></div>
+            <v-card
+              class="mx-auto"
+              max-width="400"
+              height="33%"
+            >
+              <v-card-text class="headline font-weight-bold">
+                "コメディが観たい"
+              </v-card-text>
+            </v-card>
+          <div class="question-buttom"></div>
           <div class="btns">
             <!-- <img src="./assets/rewind.png" @click="decide('rewind')"> -->
             <img src="@/assets/nope.png" @click="decide('nope')">
@@ -178,5 +188,17 @@ body {
 
 .btns img:nth-last-child(1) {
   margin-right: 0;
+}
+
+.question-top {
+  /* padding-top: 200px; */
+  height: 33%;
+  background-color: #ad4e2a;
+}
+
+.question-buttom{
+  /* padding-bottom: 300px; */
+  height: 33%;
+  background: black;
 }
 </style>
