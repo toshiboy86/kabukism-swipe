@@ -1,5 +1,4 @@
 <template>
-  <div id="app">
     <v-card
     :loading="loading"
     class="mx-auto my-12"
@@ -16,7 +15,7 @@
         height="250"
         src="https://cdn.vuetifyjs.com/images/cards/cooking.png"
       ></v-img>
-      <v-card-title>一、壽浅草柱建</v-card-title>
+      <v-card-title>{{ play.title }}</v-card-title>
       <v-card-text>
         <v-row
           align="center"
@@ -55,13 +54,31 @@
     </v-card>
   </div>
 </template>
-<script>
+<script lang="ts">
+import { PropOptions } from 'vue';
+import { defineComponent } from '@vue/composition-api'
+import { PropType } from '@vue/composition-api'
 
-export default {
-  name: "App",
-  data: () => ({
-  })
-};
+interface Play {
+    [key: string]: PlayContent
+}
+
+interface PlayContent {
+  title: string
+}
+
+
+export default defineComponent({
+  name: "Play",
+  props: {
+    play: Object as PropType<Play>
+  },
+  setup (props) {
+    const play = props.play
+    return { play }
+  }
+})
+
 </script>
 
 <style>
