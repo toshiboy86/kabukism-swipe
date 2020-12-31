@@ -21,7 +21,7 @@ export default {
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: [
-    // { src: '@/plugins/tinder.js', mode: 'client' }
+    '@/plugins/repository.ts'
   ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
