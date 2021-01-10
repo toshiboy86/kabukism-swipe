@@ -22,11 +22,11 @@
           class="mx-0"
         >
         </v-row>
-        <div>第一部　午前11時～</div>
+        <div>第一部　{{ play.time }}～</div>
         <div class="my-4 subtitle-1">
           歌舞伎座
         </div>
-        <div>2021年1月2日（土）～27日（水）</div>
+        <div>{{ play.period }}</div>
       </v-card-text>
       <v-divider class="mx-4"></v-divider>
       <v-card-title>演目の特徴</v-card-title>
@@ -36,10 +36,7 @@
           active-class="deep-purple accent-4 white--text"
           column
         >
-          <v-chip>5:30PM</v-chip>
-          <v-chip>7:30PM</v-chip>
-          <v-chip>8:00PM</v-chip>
-          <v-chip>9:00PM</v-chip>
+          <v-chip v-for="(value, key) in play.category" :key="key">{{ playCategories[value] }}</v-chip>
         </v-chip-group>
       </v-card-text>
       <v-card-actions>
@@ -56,16 +53,9 @@
 </template>
 <script lang="ts">
 import { PropOptions } from 'vue';
-import { defineComponent } from '@vue/composition-api'
-import { PropType } from '@vue/composition-api'
-
-interface Play {
-    [key: string]: PlayContent
-}
-
-interface PlayContent {
-  title: string
-}
+import { defineComponent, PropType } from '@vue/composition-api'
+import { Play } from '@/types.ts'
+import { useFetchPlayCategories } from '@/hooks/fetchPlay'
 
 
 export default defineComponent({
@@ -75,7 +65,8 @@ export default defineComponent({
   },
   setup (props) {
     const play = props.play
-    return { play }
+    const playCategories = useFetchPlayCategories()
+    return { play, playCategories }
   }
 })
 

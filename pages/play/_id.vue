@@ -9,18 +9,15 @@
 import Play from '@/components/Play.vue'
 import { defineComponent } from '@vue/composition-api'
 import playRepository from '@/api/playRepository'
+import { useFetchPlay } from '@/hooks/fetchPlay'
 
 export default defineComponent({
   name: "Plays",
   components: {
     Play
   },
-  // mounted() {
-  //   const playList = this.$playRepo.all()
-  //   return playList
-  // },
   setup() {
-    const play = new playRepository().show('2', '1')
+    const play = useFetchPlay(1, 1)
     return { play }
   }
 })
