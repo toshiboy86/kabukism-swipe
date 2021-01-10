@@ -1,7 +1,6 @@
 import data from '@/assets/playlist/latest.json'
 import playRepository from '@/api/playRepository'
 
-
 describe('play repository returns correct values', () => {
   test('show', () => {
     const part = 2

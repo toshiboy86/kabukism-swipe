@@ -1,8 +1,10 @@
 import data from '@/assets/playlist/latest.json'
 
 interface Play {
-  [key: string]: {
-    [key: string]: PlayContent
+  period: String
+  [key: number]: {
+    time: String
+    [key: number]: PlayContent
   }
 }
 
@@ -16,9 +18,9 @@ export class playRepository {
     return data.playlist
   }
 
-  show(part: string, order: string) {
+  show(part: number, order?: number) {
     const all = this.all()
-    return all[part][order]
+    return order ? all[part][order] : all[part]
   }
 }
 
