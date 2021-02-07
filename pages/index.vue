@@ -10,7 +10,7 @@
               height="33%"
             >
               <v-card-text class="headline font-weight-bold">
-                "コメディが観たい"
+                {{questions[scope.data.id].question}}
               </v-card-text>
             </v-card>
           <div class="question-buttom"></div>
@@ -29,48 +29,49 @@
 
 <script>
 import Tinder from "vue-tinder";
-// import source from "./bing";
+// import { computed, defineComponent } from '@vue/composition-api'
+import { useFetchQuestionsFromPlay } from "@/hooks/fetchPlay"
+import { useFetchQuestions } from "@/hooks/question"
+import { generateHashByPlaylist } from '@/hooks/utils'
 
-const source = [
-  "AdelieBreeding_ZH-CN1750945258",
-  "BarcolanaTrieste_ZH-CN5745744257",
-  "RedRocksArches_ZH-CN5664546697",
-  "NationalDay70_ZH-CN1636316274",
-  "LofotenSurfing_ZH-CN5901239545",
-  "UgandaGorilla_ZH-CN5826117482",
-  "FeatherSerpent_ZH-CN5706017355",
-  "VancouverFall_ZH-CN9824386829",
-]
+// type Category = Array<string>
 
 export default {
   name: "App",
   components: { Tinder },
   data: () => ({
-    queue: [],
-    offset: 0,
-    history: []
+    // queue: [],
+    // offset: 0,
+    // history: [],
+    // categories: [''],
+    // questions: {}
   }),
-  created() {
-    this.mock();
+  asyncData({ app }) {
+    const categories = useFetchQuestionsFromPlay(app.$playList, app.$question)
+    const questions = useFetchQuestions(app.$playCategory, app.$question)
+    return { queue: categories, questions: questions, plays: app.$playList }
   },
   methods: {
-    mock(count = 5, append = true) {
-      const list = [];
-      for (let i = 0; i < count; i++) {
-        list.push({ id: source[this.offset] });
-        this.offset++;
-      }
-      if (append) {
-        this.queue = this.queue.concat(list);
-      } else {
-        this.queue.unshift(...list);
-      }
-    },
-    onSubmit({ item }) {
+    // mock(count = 5, append = true) {
+    //   const list = [];
+    //   for (let i = 0; i < count; i++) {
+    //     list.push({ id: source[this.offset] });
+    //     this.offset++;
+    //   }
+    //   if (append) {
+    //     this.queue = this.queue.concat(list);
+    //   } else {
+    //     this.queue.unshift(...list);
+    //   }
+    // },
+    onSubmit(choice) {
+      console.log(generateHashByPlaylist(this.plays))
+      console.log(this.plays)
+
       if (this.queue.length < 3) {
-        this.mock();
+        // this.mock();
       }
-      this.history.push(item);
+      // this.history.push(item);
     },
     async decide(choice) {
       if (choice === "rewind") {
@@ -84,7 +85,68 @@ export default {
       }
     }
   }
-};
+}
+
+
+// const source = [
+//   "AdelieBreeding_ZH-CN1750945258",
+//   "BarcolanaTrieste_ZH-CN5745744257",
+//   "RedRocksArches_ZH-CN5664546697",
+//   "NationalDay70_ZH-CN1636316274",
+//   "LofotenSurfing_ZH-CN5901239545",
+//   "UgandaGorilla_ZH-CN5826117482",
+//   "FeatherSerpent_ZH-CN5706017355",
+//   "VancouverFall_ZH-CN9824386829",
+// ]
+
+// // type Props = {
+// //   history: Array<any>;
+// // };
+
+// export default defineComponent({
+//   name: "App",
+//   components: { Tinder },
+//   props: {
+//     history: {
+//       type: Array,
+//       'default': () => ([''])
+//     }
+//   },
+//   setup(props, context) {
+//     // const categories = useFetchQuestionsFromPlay(context.$playList, context.$question)
+//     // const questions = useFetchQuestions(context.$playCategory, context.$question)
+
+//     const questions = computed(() => {
+//       const queue = [
+//         { id: 'AdelieBreeding_ZH-CN1750945258' },
+//         { id: 'BarcolanaTrieste_ZH-CN5745744257' },
+//         { id: 'RedRocksArches_ZH-CN5664546697' },
+//         { id: 'NationalDay70_ZH-CN1636316274' },
+//         { id: 'LofotenSurfing_ZH-CN5901239545' }
+//       ]
+//       return queue
+//     })
+//     const decide = computed((choice) => {
+//       console.log('decide')
+//     })
+//     // const onSubmit = computed(( { item } ) => {
+//     //   // props.history.push(item)
+//     //   // history.push(item);
+//     //   // this.$refs.tinder
+//     //   // this.history().push(item)
+//     //   // return true
+//     // })
+//     // return { queue: categories, questions: questions, onSubmit, decide }
+//     return { decide, questions, queue: questions }
+//   },
+//   methods: {
+//     onSubmit (choice) {
+//       console.log(choice)
+//       // this.history.push(choice)
+//     }
+//   }
+// })
+
 </script>
 
 <style>

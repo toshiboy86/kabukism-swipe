@@ -8,7 +8,6 @@
 <script lang="ts">
 import Play from '@/components/Play.vue'
 import { defineComponent } from '@vue/composition-api'
-import playRepository from '@/api/playRepository'
 import { useFetchPlay } from '@/hooks/fetchPlay'
 
 export default defineComponent({
@@ -16,6 +15,14 @@ export default defineComponent({
   components: {
     Play
   },
+  asyncData({ app }) {
+    const files = app.$playList('asyncData')
+    console.log(files)
+  },
+  // mounted() {
+  //   this.$playList('mounted')
+  //   // will console.log 'Hello mounted!'
+  // },
   setup() {
     const play = useFetchPlay(1, 1)
     return { play }
