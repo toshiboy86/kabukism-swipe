@@ -21,7 +21,8 @@ export default {
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: [
-    '@/plugins/repository.ts'
+    // '@/plugins/repository.ts',
+    {src: '@/plugins/inject.ts', mode: 'server'},
   ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
