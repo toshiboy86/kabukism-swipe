@@ -1,26 +1,25 @@
-import data from '@/assets/playlist/latest.json'
-
-interface Play {
-  period: String
-  [key: number]: {
-    time: String
-    [key: number]: PlayContent
-  }
-}
-
-interface PlayContent {
-  title: string
-}
+// import data from '@/assets/playlist/latest.json'
+import { Play } from '@/types.ts'
 
 export class playRepository {
-  constructor() {}
-  all(): Play {
-    return data.playlist
+  data: Play[]
+  constructor(play: Play[]) {
+    this.data = play
+  }
+
+  all(): Play[] {
+    return this.data
   }
 
   show(part: number, order?: number) {
-    const all = this.all()
-    return order ? all[part][order] : all[part]
+    // const playToStr = this.data[part] as unknown as string
+    return order ? this.data[part].show.part[order] : this.data[part].show.part
+  }
+
+  showPlays() {
+    return this.data.map(e =>
+      JSON.parse(e as unknown as string)
+    )
   }
 }
 
