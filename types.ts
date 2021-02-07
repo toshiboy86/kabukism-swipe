@@ -1,37 +1,60 @@
 export interface Play {
-  period: String
-  [key: number]: {
+  show: {
+    period: String
     time: String
-    [key: number]: PlayContent
+    part: Array<PlayContent>
   }
 }
 
 interface PlayContent {
   title: string,
-  category: playCategory[]
+  category: Array<string>
 }
 
-interface PlayType {
-  comedy?: boolean
+interface categoryContent {
+  title: string
+  question: string
 }
-
 export interface playCategory {
-  dance: string
-  ordinaryDrama: string
-  historyDrama: string
-  aesthetics: string
-  comedy: string
-  tragic: string
-  horror: string
-  drama: string
-  romance: string
-  ghost: string
-  action: string
-  keren: string
-  easy: string
-  mask: string
-  musical: string
-  profound: string
-  famous: string
-  gorgeous: string
+  dance: categoryContent
+  ordinaryDrama: categoryContent
+  historyDrama: categoryContent
+  music: categoryContent
+  famous: categoryContent
+  easy: categoryContent
+  gorgeous: categoryContent
+  // aesthetics: categoryContent
+  // comedy: categoryContent
+  // tragic: categoryContent
+  // horror: categoryContent
+  // drama: categoryContent
+  // romance: categoryContent
+  // ghost: categoryContent
+  // action: categoryContent
+  // keren: categoryContent
+  // easy: categoryContent
+  // mask: categoryContent
+  // orchestra: categoryContent
+  // famous: categoryContent
+  // gorgeous: categoryContent
+  // typical: categoryContent
+  // amuse: categoryContent
+}
+
+export interface Question {
+  beginner: categoryContent
+  intermediate: categoryContent
+}
+
+export interface playPoint {
+  frinedliness: Array<String>
+}
+
+export interface Preference {
+  like: boolean
+  category: string
+}
+
+export interface HashScore {
+  [key:string]: number
 }
