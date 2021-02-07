@@ -1,0 +1,36 @@
+{
+  "show": {
+    "period": "2021年2月2日（火）～27日（土）",
+    "time": "午後5時30分",
+    "part": [
+      {
+        "title": "一、奥州安達原（おうしゅうあだちがはら）",
+        "category": [
+          "historyDrama",
+          "gorgeous",
+          "famous"
+        ],
+        "point": {
+          "story": "1",
+          "climax": "1",
+          "total": "1"
+        }
+      },
+      {
+        "title": "二、連獅子（れんじし）",
+        "category": [
+          "dance",
+          "easy",
+          "music",
+          "famous",
+          "gorgeous"
+        ],
+        "point": {
+          "story": "3",
+          "climax": "3",
+          "total": "9"
+        }
+      }
+    ]
+  }
+}

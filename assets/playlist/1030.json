@@ -1,0 +1,31 @@
+{
+  "show": {
+    "period": "2021年2月2日（火）～27日（土）",
+    "time": "午前10時30分",
+    "part": [
+      {
+        "title": "一、本朝廿四孝（ほんちょうにじゅうしこう）",
+        "category": [
+          "historyDrama",
+          "gorgeous"
+        ],
+        "point": {
+          "story": "1",
+          "climax": "1",
+          "total": "1"
+        }
+      },
+      {
+        "title": "二、泥棒と若殿（どろぼうとわかとの）",
+        "category": [
+          "ordinaryDrama"
+        ],
+        "point": {
+          "story": "3",
+          "climax": "1",
+          "total": "3"
+        }
+      }
+    ]
+  }
+}

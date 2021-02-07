@@ -1,20 +1,30 @@
 {
-  "dance": "踊り",
-  "ordinaryDrama": "日常ドラマ",
-  "historyDrama": "歴史ドラマ",
-  "aesthetics": "美意識",
-  "comedy": "コメディ",
-  "tragic": "悲劇",
-  "horror": "ホラー",
-  "drama": "人間ドラマ",
-  "romance": "恋物語",
-  "ghost": "幽霊・妖怪",
-  "action": "アクション",
-  "keren": "驚き",
-  "easy": "わかりやすい",
-  "mask": "白メイク",
-  "musical": "ミュージカル",
-  "profound": "日本文化の深み",
-  "famous": "話題の人物",
-  "gorgeous": "豪華"
+  "dance": {
+    "title": "踊り",
+    "question": "ダンスが好き"
+  },
+  "ordinaryDrama": {
+    "title": "日常ドラマ",
+    "question": "日常を主題にしたドラマが観たい"
+  },
+  "historyDrama": {
+    "title": "歴史ドラマ",
+    "question": "史実を基にした登場する重厚なドラマが観たい"
+  },
+  "gorgeous": {
+    "title": "豪華な衣装",
+    "question": "歌舞伎特有の豪華な衣装を楽しみたい"
+  },
+  "music": {
+    "title": "音楽",
+    "question": "三味線や太鼓を使った日本の音楽を楽しみたい"
+  },
+  "easy": {
+    "title": "わかりやすい",
+    "question": "わかりやすい物語や演出を楽しみたい"
+  },
+  "famous": {
+    "title": "話題の人物",
+    "question": "いま話題の人物が出ます"
+  }
 }

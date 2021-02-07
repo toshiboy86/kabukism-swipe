@@ -1,0 +1,32 @@
+{
+  "show": {
+    "period": "2021年2月2日（火）～27日（土）",
+    "time": "午後2時15分",
+    "part": [
+      {
+        "title": "一、於染久松色読販（おそめひさまつうきなのよみうり）",
+        "category": [
+          "ordinaryDrama"
+        ],
+        "point": {
+          "story": "2",
+          "climax": "1",
+          "total": "2"
+        }
+      },
+      {
+        "title": "二、神田祭（かんだまつり）",
+        "category": [
+          "dance",
+          "music",
+          "easy"
+        ],
+        "point": {
+          "story": "3",
+          "climax": "2",
+          "total": "6"
+        }
+      }
+    ]
+  }
+}

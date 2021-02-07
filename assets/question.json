@@ -1,0 +1,10 @@
+{
+  "beginner": {
+    "title": "初級",
+    "question": "予習や下調べをして観に行きたい"
+  },
+  "intermediate": {
+    "title": "中級",
+    "question": "ストーリーや背景、心情の細部まで理解したい"
+  }
+}
